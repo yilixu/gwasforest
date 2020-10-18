@@ -57,7 +57,7 @@
 #'
 #' @export
 
-# create GWASFOREST function
+# create gwasforest function
 gwasforest = function(customFilename, customFilename_results = NULL, customFilename_studyName = NULL, keepStudyOrder = TRUE, stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE, calculateCI = TRUE, valueFormat = "Effect", metaStudy = "Study1", colorMode = "mono", forestLayout = "auto", plotTitle = "auto", showMetaValue = TRUE, outputFolderPath = NULL) {
 
   # preset valueFormat_show for plot title and ylab
@@ -309,7 +309,7 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
   } else {
     print("Based on user's choice, GWAS forest plot file will not be generated")
   }
-  print("Run completed, thank you for using GWASFOREST")
+  print("Run completed, thank you for using gwasforest")
 
   # return GWAS results and forest plot object
   temp_gwas_forest_returnList = list("GWAS_results" = gwas_results_fullCI, "GWAS_forest_plot" = gwas_forest)
