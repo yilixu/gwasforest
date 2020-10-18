@@ -66,6 +66,6 @@ eg_customFilename_results = eg_returnList[[1]]
 
 ```{r example plot, echo = TRUE}
 library(ggplot2)
-
+ 
 plot(eg_returnList[[2]])
 ```

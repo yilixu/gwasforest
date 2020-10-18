@@ -44,7 +44,7 @@ eg_returnList = gwasforest(eg_customFilename, stdColnames = TRUE, valueFormat = 
 #>   c.quosures     rlang
 #>   print.quosures rlang
 #> [1] "Based on user's choice, GWAS forest plot file will not be generated"
-#> [1] "Run completed, thank you for using GWASFOREST"
+#> [1] "Run completed, thank you for using gwasforest"
 ```
 
 ### customFilename in dataframe format (without standardized column names), with customFilename\_studyName provided in dataframe format
@@ -67,7 +67,7 @@ eg_returnList = gwasforest(eg_customFilename, customFilename_studyName = eg_cust
 #> [1] "Based on user's choice, GWAS results output file will not be generated"
 #> [1] "As per user's request, all studies except meta study will be set in the original order from top to bottom on the forest plot"
 #> [1] "Based on user's choice, GWAS forest plot file will not be generated"
-#> [1] "Run completed, thank you for using GWASFOREST"
+#> [1] "Run completed, thank you for using gwasforest"
 ```
 
 ### customFilename\_results in dataframe format (run either of the two examples above to see the example results)
@@ -78,7 +78,7 @@ eg_customFilename_results = eg_returnList[[1]]
 
 ``` r
 library(ggplot2)
-
+ 
 plot(eg_returnList[[2]])
 #> Warning: Removed 12 rows containing missing values (geom_text_repel).
 ```
