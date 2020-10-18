@@ -1,13 +1,23 @@
 Package: gwasforest
-Title: What the Package Does (One Line, Title Case)
+Title: Make Forest Plot With GWAS Data
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+Authors@R: c(
+    person("Yili", "Xu", email = "yilixu@usc.edu", role = c("aut", "cre")),
+    person("Anqi", "Wang", email = "wanganqi@usc.edu", role = c("aut")))
+Description: Extract and reform data from GWAS results, and then make a single integrated
+    forest plot containing multiple windows of which each shows the result of
+    individual SNPs (or other items of interest).
+URL: https://github.com/yilixu/gwasforest
+BugReports: https://github.com/yilixu/gwasforest/issues
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    colorspace,
+    data.table,
+    dplyr,
+    ggplot2,
+    ggrepel,
+    glue,
+    utils
