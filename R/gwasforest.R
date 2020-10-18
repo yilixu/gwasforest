@@ -316,5 +316,5 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
   return(temp_gwas_forest_returnList)
 }
 
-# preset global variables
+# preset global variables for R CMD check
 utils::globalVariables(c("CI", "ColorGroup", "Lower", "StudyName", "Upper", "Value"))
