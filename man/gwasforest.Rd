@@ -14,7 +14,7 @@ gwasforest(customFilename, customFilename_results = NULL,
 \arguments{
 \item{customFilename, customFilename_results}{string, relative or full path to the input file. customFilename for raw GWAS data file, and customFilename_results for gwasforest-generated results file. If customFilename_results is provided, certain downstream calculations will be skipped.}
 
-\item{customFilename_studyName}{string, relative or full path to the study name file, if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.}
+\item{customFilename_studyName}{(optional) string, relative or full path to the study name file, required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.}
 
 \item{keepStudyOrder}{logical, whether to keep studies (except for meta study) in the original order provided by user (from customFilename_studyName), or sort them alphabatically on the combined forest plot; meta study will always be put at the bottom of the combined forest plot.}
 
@@ -24,7 +24,7 @@ gwasforest(customFilename, customFilename_results = NULL,
 
 \item{calculateEXP}{logical, whether to calculate exp(Value), if TRUE, downstream calculateCI will also take exp into consideration.}
 
-\item{calculateCI}{logical, whether to calculate Confidence Interval, if TRUE, input data need to contain "StdErr" column; if FALSE, input data need to contain UPPER and LOWER columns.}
+\item{calculateCI}{logical, whether to calculate Confidence Interval, if TRUE, input data need to contain "StdErr" column; if FALSE, input data need to contain "Upper" and "Lower" columns.}
 
 \item{valueFormat}{character, format of Value column, e.g. "Effect", "Beta", "OR", "HR", "logRR"...}
 
