@@ -13,7 +13,7 @@ Installation
 You can install the development version of gwasforest from github with:
 
 ``` r
-devtools::install_github("yilixu/gwasforest")
+devtools::install_github("yilixu/gwasforest", ref = "main")
 ```
 
 Example
