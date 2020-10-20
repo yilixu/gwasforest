@@ -23,6 +23,7 @@ Example
 
 ``` r
 library(gwasforest)
+set.seed(123)
 
 tempValue = runif(n = 18, min = 0.01, max = 2)
 tempStdErr = tempValue / rep(3:5, times = 6)
