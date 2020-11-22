@@ -4,9 +4,7 @@ Version: 1.0.0
 Authors@R: c(
     person("Yili", "Xu", email = "yilixu@usc.edu", role = c("aut", "cre")),
     person("Anqi", "Wang", email = "wanganqi@usc.edu", role = c("aut")))
-Description: Extract and reform data from GWAS (genome-wide association study) results, and then make a single integrated
-    forest plot containing multiple windows of which each shows the result of
-    individual SNPs (or other items of interest).
+Description: Extract and reform data from GWAS (genome-wide association study) results, and then make a single integrated forest plot containing multiple windows of which each shows the result of individual SNPs (or other items of interest).
 URL: https://github.com/yilixu/gwasforest
 BugReports: https://github.com/yilixu/gwasforest/issues
 License: MIT + file LICENSE
