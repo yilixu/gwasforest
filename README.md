@@ -10,7 +10,7 @@ The goal of **gwasforest** is to extract and reform data from GWAS results, and 
 Installation
 ------------
 
-The development version of **gwasforest** can be installed from github with:
+The development version of **gwasforest** can be installed from GitHub with:
 
 ``` r
 devtools::install_github("yilixu/gwasforest", ref = "main")

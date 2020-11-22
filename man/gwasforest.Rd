@@ -27,7 +27,7 @@ gwasforest(
 
 \item{customFilename_studyName}{(optional) string, relative or full path to the study name file, required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.}
 
-\item{keepStudyOrder}{logical, whether to keep studies (except for meta study) in the original order provided by user (from customFilename_studyName), or sort them alphabatically on the combined forest plot; meta study will always be put at the bottom of the combined forest plot.}
+\item{keepStudyOrder}{logical, whether to keep studies (except for meta study) in the original order provided by user (from customFilename_studyName), or sort them alphabetically on the combined forest plot; meta study will always be put at the bottom of the combined forest plot.}
 
 \item{stdColnames}{logical, whether the input data has standardized column names as provided in the instruction example, if TRUE, column order doesn't matter (except that study1 needs to be the Meta study); if FALSE, see "customColnames".}
 
