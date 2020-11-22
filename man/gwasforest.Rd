@@ -4,12 +4,23 @@
 \alias{gwasforest}
 \title{Make forest plot with GWAS data}
 \usage{
-gwasforest(customFilename, customFilename_results = NULL,
-  customFilename_studyName = NULL, keepStudyOrder = TRUE,
-  stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE,
-  calculateCI = TRUE, valueFormat = "Effect", metaStudy = "Study1",
-  colorMode = "mono", forestLayout = "auto", plotTitle = "auto",
-  showMetaValue = TRUE, outputFolderPath = NULL)
+gwasforest(
+  customFilename,
+  customFilename_results = NULL,
+  customFilename_studyName = NULL,
+  keepStudyOrder = TRUE,
+  stdColnames = FALSE,
+  customColnames = NULL,
+  calculateEXP = FALSE,
+  calculateCI = TRUE,
+  valueFormat = "Effect",
+  metaStudy = "Study1",
+  colorMode = "mono",
+  forestLayout = "auto",
+  plotTitle = "auto",
+  showMetaValue = TRUE,
+  outputFolderPath = NULL
+)
 }
 \arguments{
 \item{customFilename, customFilename_results}{string, relative or full path to the input file. customFilename for raw GWAS data file, and customFilename_results for gwasforest-generated results file. If customFilename_results is provided, certain downstream calculations will be skipped.}
