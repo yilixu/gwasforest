@@ -69,7 +69,7 @@ eg_returnList = gwasforest(eg_customFilename, customFilename_studyName = eg_cust
 eg_customFilename_results = eg_returnList[[1]]
 ```
 
-```{r example plot, echo = TRUE, warning = TRUE}
+```{r example_plot, echo = TRUE, warning = TRUE}
 library(ggplot2)
 
 # render plot, see additional NOTES below
@@ -78,4 +78,4 @@ plot(eg_returnList[[2]])
 
 * **( 4 ) NOTES**: As shown above, the plot rendered through plot() may suffer from certain issues such as low-resolution and overlapping labels. To overcome these issues and get the genuine plot output from **gwasforest**, it is recommended to provide a valid **outputFolderPath** so that a better-rendered plot can be created. The below is the genuine plot output created from the same example data:
 
-![](./man/figures/GWASForestPlot_of_6_items_by_3_groups_in_original_order_with_ColorMode_duo.png)
+![](./man/figures/GWASForestPlot_of_6_items_by_3_groups.png)

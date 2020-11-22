@@ -82,8 +82,8 @@ plot(eg_returnList[[2]])
 #> Warning: Removed 12 rows containing missing values (geom_text_repel).
 ```
 
-<img src="man/figures/README-example plot-1.png" width="100%" />
+<img src="man/figures/README-example_plot-1.png" width="100%" />
 
 -   **( 4 ) NOTES**: As shown above, the plot rendered through plot() may suffer from certain issues such as low-resolution and overlapping labels. To overcome these issues and get the genuine plot output from **gwasforest**, it is recommended to provide a valid **outputFolderPath** so that a better-rendered plot can be created. The below is the genuine plot output created from the same example data:
 
-![](./man/figures/GWASForestPlot_of_6_items_by_3_groups_in_original_order_with_ColorMode_duo.png)
+![](./man/figures/GWASForestPlot_of_6_items_by_3_groups.png)
