@@ -1,6 +1,6 @@
 Package: gwasforest
 Title: Make Forest Plot with GWAS Data
-Version: 1.0.0
+Version: 1.0.0.9000
 Authors@R: c(
     person("Yili", "Xu", email = "yilixu@usc.edu", role = c("aut", "cre")),
     person("Anqi", "Wang", email = "wanganqi@usc.edu", role = c("aut")))

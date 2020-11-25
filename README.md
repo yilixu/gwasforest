@@ -10,6 +10,12 @@ The goal of **gwasforest** is to extract and reform data from GWAS results, and 
 Installation
 ------------
 
+The official release version of **gwasforest** can be installed from CRAN with:
+
+``` r
+utils::install.packages("gwasforest")
+```
+
 The development version of **gwasforest** can be installed from GitHub with:
 
 ``` r

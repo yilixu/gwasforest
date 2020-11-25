@@ -5,3 +5,4 @@
 ^README\.html$
 ^index\.html$
 ^cran-comments\.md$
+^CRAN-RELEASE$
