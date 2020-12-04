@@ -1,22 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-gwasforest
-==========
+*gwasforest*
+============
 
 <!-- badges: start -->
 <!-- badges: end -->
-The goal of **gwasforest** is to extract and reform data from GWAS results, and then make a single integrated forest plot containing multiple windows of which each shows the result of individual SNPs (or other items of interest).
+The goal of ***gwasforest*** is to extract and reform data from GWAS results, and then make a single integrated forest plot containing multiple windows of which each shows the result of individual SNPs (or other items of interest).
 
 Installation
 ------------
 
-The official release version of **gwasforest** can be installed from CRAN with:
+The official release version of ***gwasforest*** can be installed from CRAN with:
 
 ``` r
 utils::install.packages("gwasforest")
 ```
 
-The development version of **gwasforest** can be installed from GitHub with:
+The development version of ***gwasforest*** can be installed from GitHub with:
 
 ``` r
 devtools::install_github("yilixu/gwasforest", ref = "main")
@@ -90,6 +90,6 @@ plot(eg_returnList[[2]])
 
 <img src="man/figures/README-example_plot-1.png" width="100%" />
 
--   **( 4 ) NOTES**: As shown above, the plot rendered through plot() may suffer from certain issues such as low-resolution and overlapping labels. To overcome these issues and get the genuine plot output from **gwasforest**, it is recommended to provide a valid **outputFolderPath** so that a better-rendered plot can be created. The below is the genuine plot output created from the same example data:
+-   **( 4 ) NOTES**: As shown above, the plot rendered through plot() may suffer from certain issues such as low-resolution and overlapping labels. To overcome these issues and get the genuine plot output from ***gwasforest***, it is recommended to provide a valid **outputFolderPath** so that a better-rendered plot can be created. The below is the genuine plot output created from the same example data:
 
 ![](./man/figures/GWASForestPlot_of_6_items_by_3_groups.png)
