@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gwasforest</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9001</span>
       </span>
     </div>
 
@@ -133,11 +133,13 @@
   calculateCI <span class='op'>=</span> <span class='cn'>TRUE</span>,
   valueFormat <span class='op'>=</span> <span class='st'>"Effect"</span>,
   metaStudy <span class='op'>=</span> <span class='st'>"Study1"</span>,
-  colorMode <span class='op'>=</span> <span class='st'>"mono"</span>,
+  colorMode <span class='op'>=</span> <span class='st'>"duo"</span>,
   forestLayout <span class='op'>=</span> <span class='st'>"auto"</span>,
   plotTitle <span class='op'>=</span> <span class='st'>"auto"</span>,
   showMetaValue <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  outputFolderPath <span class='op'>=</span> <span class='cn'>NULL</span>
+  outputFolderPath <span class='op'>=</span> <span class='cn'>NULL</span>,
+  outputPlot_format <span class='op'>=</span> <span class='st'>"png"</span>,
+  outputPlot_resolution <span class='op'>=</span> <span class='fl'>320</span>
 <span class='op'>)</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -198,6 +200,14 @@
     <tr>
       <th>outputFolderPath</th>
       <td><p>string, relative or full path to the output folder, can be set to NULL (no output file will be written to the file system).</p></td>
+    </tr>
+    <tr>
+      <th>outputPlot_format</th>
+      <td><p>character, format of the output forest plot, the default and recommended option is "png". Accepted formats: "eps", "ps", "pdf", "jpeg", "tiff", "png", "bmp", "svg".</p></td>
+    </tr>
+    <tr>
+      <th>outputPlot_resolution</th>
+      <td><p>integer, resolution of the output forest plot (in dpi), the default and recommended option is 320.</p></td>
     </tr>
     </table>
     
