@@ -15,11 +15,13 @@ gwasforest(
   calculateCI = TRUE,
   valueFormat = "Effect",
   metaStudy = "Study1",
-  colorMode = "mono",
+  colorMode = "duo",
   forestLayout = "auto",
   plotTitle = "auto",
   showMetaValue = TRUE,
-  outputFolderPath = NULL
+  outputFolderPath = NULL,
+  outputPlot_format = "png",
+  outputPlot_resolution = 320
 )
 }
 \arguments{
@@ -50,6 +52,10 @@ gwasforest(
 \item{showMetaValue}{logical, whether to show value for meta group on the combined forest plot.}
 
 \item{outputFolderPath}{string, relative or full path to the output folder, can be set to NULL (no output file will be written to the file system).}
+
+\item{outputPlot_format}{character, format of the output forest plot, the default and recommended option is "png". Accepted formats: "eps", "ps", "pdf", "jpeg", "tiff", "png", "bmp", "svg".}
+
+\item{outputPlot_resolution}{integer, resolution of the output forest plot (in dpi), the default and recommended option is 320.}
 }
 \value{
 list, users can run the function without assigning the return value to a variable. If assigned to a variable, it will be a list containing GWAS results (dataframe) and GWAS forest plot (ggplot2 object).

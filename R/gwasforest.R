@@ -16,6 +16,8 @@
 #' @param plotTitle character/string, the title of the combined forest plot, can be customized or simply set to "auto".
 #' @param showMetaValue logical, whether to show value for meta group on the combined forest plot.
 #' @param outputFolderPath string, relative or full path to the output folder, can be set to NULL (no output file will be written to the file system).
+#' @param outputPlot_format character, format of the output forest plot, the default and recommended option is "png". Accepted formats: "eps", "ps", "pdf", "jpeg", "tiff", "png", "bmp", "svg".
+#' @param outputPlot_resolution integer, resolution of the output forest plot (in dpi), the default and recommended option is 320.
 #'
 #' @return list, users can run the function without assigning the return value to a variable. If assigned to a variable, it will be a list containing GWAS results (dataframe) and GWAS forest plot (ggplot2 object).
 #'
@@ -58,7 +60,7 @@
 #' @export
 
 # create gwasforest function
-gwasforest = function(customFilename, customFilename_results = NULL, customFilename_studyName = NULL, keepStudyOrder = TRUE, stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE, calculateCI = TRUE, valueFormat = "Effect", metaStudy = "Study1", colorMode = "mono", forestLayout = "auto", plotTitle = "auto", showMetaValue = TRUE, outputFolderPath = NULL) {
+gwasforest = function(customFilename, customFilename_results = NULL, customFilename_studyName = NULL, keepStudyOrder = TRUE, stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE, calculateCI = TRUE, valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo", forestLayout = "auto", plotTitle = "auto", showMetaValue = TRUE, outputFolderPath = NULL, outputPlot_format = "png", outputPlot_resolution = 320) {
 
   # preset valueFormat_show for plot title and ylab
   if (calculateEXP == TRUE) {
@@ -304,7 +306,7 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
   if (!is.null(outputFolderPath)) {
     print(glue::glue("Based on user's choice, GWAS forest plot file will be generated in {outputFolderPath}"))
     suppressWarnings(
-      ggplot2::ggsave(filename = paste0(outputFolderPath, "GWASForestPlot_of_", length(gwas_markerName), "_items_by_", length(gwas_studyName), "_groups_in_", ifelse(keepStudyOrder == TRUE, "original", "alphabetical"), "_order_", "with_ColorMode_", colorMode, ".png"), plot = gwas_forest, device = "png", width = gwas_width, height = gwas_height, dpi = 320, limitsize = FALSE)
+      ggplot2::ggsave(filename = paste0(outputFolderPath, "GWASForestPlot_of_", length(gwas_markerName), "_items_by_", length(gwas_studyName), "_groups_in_", ifelse(keepStudyOrder == TRUE, "original", "alphabetical"), "_order_", "with_ColorMode_", colorMode, "_", outputPlot_resolution, "dpi", ".", outputPlot_format), plot = gwas_forest, width = gwas_width, height = gwas_height, limitsize = FALSE, device = outputPlot_format, dpi = outputPlot_resolution)
     )
   } else {
     print("Based on user's choice, GWAS forest plot file will not be generated")
