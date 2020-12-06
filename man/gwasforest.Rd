@@ -25,15 +25,17 @@ gwasforest(
 )
 }
 \arguments{
-\item{customFilename, customFilename_results}{string, relative or full path to the input file. customFilename for raw GWAS data file, and customFilename_results for gwasforest-generated results file. If customFilename_results is provided, certain downstream calculations will be skipped.}
+\item{customFilename}{string, relative or absolute path to the raw GWAS data file. Or dataframe in the same format as provided in the examples (see examples).}
 
-\item{customFilename_studyName}{(optional) string, relative or full path to the study name file, required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.}
+\item{customFilename_results}{string, relative or relative path to the gwasforest-generated results file. Or dataframe in the same format as provided in the examples (see examples). If customFilename_results is provided, certain downstream calculations will be skipped.}
+
+\item{customFilename_studyName}{(optional) string, relative or absolute path to the study name file. Or dataframe in the same format as provided in the examples (see examples). Required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.}
 
 \item{keepStudyOrder}{logical, whether to keep studies (except for meta study) in the original order provided by user (from customFilename_studyName), or sort them alphabetically on the combined forest plot; meta study will always be put at the bottom of the combined forest plot.}
 
 \item{stdColnames}{logical, whether the input data has standardized column names as provided in the instruction example, if TRUE, column order doesn't matter (except that study1 needs to be the Meta study); if FALSE, see "customColnames".}
 
-\item{customColnames}{character, case-sensitive, can be a vector, choose from c("Value", "StdErr") or c("Value", "Upper", "Lower") based on what columns are contained in the input data; required if stdColnames = FALSE, also the input data need to be grouped by study while in the customColnames order, e.g. Study1__Value, Study1__StdErr, Study2__Value, Study2__StdErr...; in addition, each study should contain the same number of columns.}
+\item{customColnames}{# character, case-sensitive, can be a vector, choose from c("Value", "StdErr") or c("Value", "Upper", "Lower") based on what columns are contained in the input data; required if stdColnames = FALSE, also the input data need to be grouped by study while in the customColnames order, e.g. Study1__Value, Study1__StdErr, Study2__Value, Study2__StdErr... (watch for the deliberate double underscores "__" used to connect study name and data type); in addition, each study should contain the same number of columns.}
 
 \item{calculateEXP}{logical, whether to calculate exp(Value), if TRUE, downstream calculateCI will also take exp into consideration.}
 
@@ -51,9 +53,9 @@ gwasforest(
 
 \item{showMetaValue}{logical, whether to show value for meta group on the combined forest plot.}
 
-\item{outputFolderPath}{string, relative or full path to the output folder, can be set to NULL (no output file will be written to the file system).}
+\item{outputFolderPath}{string, relative or absolute path to the output folder (watch for the trailing slash "/"), can be set to NULL (no output file will be written to the file system).}
 
-\item{outputPlot_format}{character, format of the output forest plot, the default and recommended option is "png". Accepted formats: "eps", "ps", "pdf", "jpeg", "tiff", "png", "bmp", "svg".}
+\item{outputPlot_format}{character, format of the output forest plot, the default and recommended option is "png". Accepted custom formats are (in alphabetical order): “bmp”, “eps”, “jpeg”, “pdf”, “png”, “ps”, “svg”, and “tiff”.}
 
 \item{outputPlot_resolution}{integer, resolution of the output forest plot (in dpi), the default and recommended option is 320.}
 }

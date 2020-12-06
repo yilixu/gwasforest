@@ -146,12 +146,16 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>customFilename, customFilename_results</th>
-      <td><p>string, relative or full path to the input file. customFilename for raw GWAS data file, and customFilename_results for gwasforest-generated results file. If customFilename_results is provided, certain downstream calculations will be skipped.</p></td>
+      <th>customFilename</th>
+      <td><p>string, relative or absolute path to the raw GWAS data file. Or dataframe in the same format as provided in the examples (see examples).</p></td>
+    </tr>
+    <tr>
+      <th>customFilename_results</th>
+      <td><p>string, relative or relative path to the gwasforest-generated results file. Or dataframe in the same format as provided in the examples (see examples). If customFilename_results is provided, certain downstream calculations will be skipped.</p></td>
     </tr>
     <tr>
       <th>customFilename_studyName</th>
-      <td><p>(optional) string, relative or full path to the study name file, required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.</p></td>
+      <td><p>(optional) string, relative or absolute path to the study name file. Or dataframe in the same format as provided in the examples (see examples). Required if users want to use their own study names which is not standardized (see "stdColnames"); all study names should be in one column with a header; also, study names should be in the order of that they first appear in the input data columns.</p></td>
     </tr>
     <tr>
       <th>keepStudyOrder</th>
@@ -163,7 +167,7 @@
     </tr>
     <tr>
       <th>customColnames</th>
-      <td><p>character, case-sensitive, can be a vector, choose from c("Value", "StdErr") or c("Value", "Upper", "Lower") based on what columns are contained in the input data; required if stdColnames = FALSE, also the input data need to be grouped by study while in the customColnames order, e.g. Study1__Value, Study1__StdErr, Study2__Value, Study2__StdErr...; in addition, each study should contain the same number of columns.</p></td>
+      <td><p># character, case-sensitive, can be a vector, choose from c("Value", "StdErr") or c("Value", "Upper", "Lower") based on what columns are contained in the input data; required if stdColnames = FALSE, also the input data need to be grouped by study while in the customColnames order, e.g. Study1__Value, Study1__StdErr, Study2__Value, Study2__StdErr... (watch for the deliberate double underscores "__" used to connect study name and data type); in addition, each study should contain the same number of columns.</p></td>
     </tr>
     <tr>
       <th>calculateEXP</th>
@@ -199,11 +203,11 @@
     </tr>
     <tr>
       <th>outputFolderPath</th>
-      <td><p>string, relative or full path to the output folder, can be set to NULL (no output file will be written to the file system).</p></td>
+      <td><p>string, relative or absolute path to the output folder (watch for the trailing slash "/"), can be set to NULL (no output file will be written to the file system).</p></td>
     </tr>
     <tr>
       <th>outputPlot_format</th>
-      <td><p>character, format of the output forest plot, the default and recommended option is "png". Accepted formats: "eps", "ps", "pdf", "jpeg", "tiff", "png", "bmp", "svg".</p></td>
+      <td><p>character, format of the output forest plot, the default and recommended option is "png". Accepted custom formats are (in alphabetical order): “bmp”, “eps”, “jpeg”, “pdf”, “png”, “ps”, “svg”, and “tiff”.</p></td>
     </tr>
     <tr>
       <th>outputPlot_resolution</th>
