@@ -42,15 +42,15 @@
 #' # with customFilename_studyName provided in dataframe format
 #' tempValue = runif(n = 18, min = 0.01, max = 2)
 #' tempStdErr = tempValue / rep(3:5, times = 6)
-#' eg_customFilename = data.frame(paste0("Marker", 1:6), tempValue[1:6],
+#' eg_customFilename2 = data.frame(paste0("Marker", 1:6), tempValue[1:6],
 #'     tempStdErr[1:6], tempValue[7:12], tempStdErr[7:12], tempValue[13:18],
 #'     tempStdErr[13:18], stringsAsFactors = FALSE)
-#' colnames(eg_customFilename) = c("MarkerName", paste0(rep("Study", times = 6),
+#' colnames(eg_customFilename2) = c("MarkerName", paste0(rep("Study", times = 6),
 #'     rep(1:3, each = 2), sample(LETTERS, 6)))
 #' rm(tempValue, tempStdErr)
 #' eg_customFilename_studyName = data.frame("studyName" = paste0("Study", 1:3),
 #'     stringsAsFactors = FALSE)
-#' eg_returnList = gwasforest(eg_customFilename, customFilename_studyName =
+#' eg_returnList2 = gwasforest(eg_customFilename2, customFilename_studyName =
 #'     eg_customFilename_studyName, stdColnames = FALSE, customColnames = c("Value",
 #'     "StdErr"), valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo")
 #'

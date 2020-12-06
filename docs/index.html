@@ -173,7 +173,15 @@
 <span class="co">#&gt; 3    Study3</span></code></pre></div>
 <div class="sourceCode"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># run gwasforest function</span>
-<span class="va">eg_returnList</span> <span class="op">=</span> <span class="fu"><a href="reference/gwasforest.html">gwasforest</a></span><span class="op">(</span><span class="va">eg_customFilename</span>, customFilename_studyName <span class="op">=</span> <span class="va">eg_customFilename_studyName</span>, stdColnames <span class="op">=</span> <span class="cn">FALSE</span>, customColnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Value"</span>, <span class="st">"StdErr"</span><span class="op">)</span>, valueFormat <span class="op">=</span> <span class="st">"Effect"</span>, metaStudy <span class="op">=</span> <span class="st">"Study1"</span>, colorMode <span class="op">=</span> <span class="st">"duo"</span><span class="op">)</span></code></pre></div>
+<span class="va">eg_returnList2</span> <span class="op">=</span> <span class="fu"><a href="reference/gwasforest.html">gwasforest</a></span><span class="op">(</span><span class="va">eg_customFilename2</span>, customFilename_studyName <span class="op">=</span> <span class="va">eg_customFilename_studyName</span>, stdColnames <span class="op">=</span> <span class="cn">FALSE</span>, customColnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Value"</span>, <span class="st">"StdErr"</span><span class="op">)</span>, valueFormat <span class="op">=</span> <span class="st">"Effect"</span>, metaStudy <span class="op">=</span> <span class="st">"Study1"</span>, colorMode <span class="op">=</span> <span class="st">"duo"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Column names are grouped by study and in the order of |Value, StdErr|"</span>
+<span class="co">#&gt; [1] "Start reforming"</span>
+<span class="co">#&gt; [1] "Loading user-provided values"</span>
+<span class="co">#&gt; [1] "Start calculating Confidence Interval (non-exponential)"</span>
+<span class="co">#&gt; [1] "Based on user's choice, GWAS results output file will not be generated"</span>
+<span class="co">#&gt; [1] "As per user's request, all studies except meta study will be set in the original order from top to bottom on the forest plot"</span>
+<span class="co">#&gt; [1] "Based on user's choice, GWAS forest plot file will not be generated"</span>
+<span class="co">#&gt; [1] "Run completed, thank you for using gwasforest"</span></code></pre></div>
 <ul>
 <li>
 <strong>( 3 )</strong> when <strong>customFilename_results</strong> is in dataframe format (run either of the two steps above to see the example results):</li>

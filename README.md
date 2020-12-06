@@ -111,7 +111,7 @@ print(eg_customFilename_studyName)
 
 ``` r
 # run gwasforest function
-eg_returnList = gwasforest(eg_customFilename2, customFilename_studyName = eg_customFilename_studyName, stdColnames = FALSE, customColnames = c("Value", "StdErr"), valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo")
+eg_returnList2 = gwasforest(eg_customFilename2, customFilename_studyName = eg_customFilename_studyName, stdColnames = FALSE, customColnames = c("Value", "StdErr"), valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo")
 #> [1] "Column names are grouped by study and in the order of |Value, StdErr|"
 #> [1] "Start reforming"
 #> [1] "Loading user-provided values"
@@ -130,25 +130,25 @@ eg_customFilename_results = eg_returnList[[1]]
 
 # take a quick look at the example: results table
 print(eg_customFilename_results)
-#>    MarkerName Value      Upper      Lower StudyName              CI
-#> 1     Marker1  0.66 1.09543622 0.22968824    Study1  0.66(0.23-1.1)
-#> 2     Marker2  1.91 2.84509877 0.97382575    Study1 1.91(0.97-2.85)
-#> 3     Marker3  1.78 2.47801507 1.08235141    Study1 1.78(1.08-2.48)
-#> 4     Marker4  1.39 2.29594891 0.48140864    Study1  1.39(0.48-2.3)
-#> 5     Marker5  1.28 1.91406675 0.65515037    Study1 1.28(0.66-1.91)
-#> 6     Marker6  1.99 2.76812682 1.20906689    Study1 1.99(1.21-2.77)
-#> 7     Marker1  1.31 2.17389284 0.45581624    Study2 1.31(0.46-2.17)
-#> 8     Marker2  1.42 2.11576369 0.72418757    Study2 1.42(0.72-2.12)
-#> 9     Marker3  1.09 1.52102641 0.66435636    Study2 1.09(0.66-1.52)
-#> 10    Marker4  1.19 1.97133980 0.41334544    Study2 1.19(0.41-1.97)
-#> 11    Marker5  0.59 0.87228754 0.29856822    Study2  0.59(0.3-0.87)
-#> 12    Marker6  0.30 0.42143657 0.18407574    Study2  0.3(0.18-0.42)
-#> 13    Marker1  1.93 3.18501146 0.66782498    Study3 1.93(0.67-3.19)
-#> 14    Marker2  1.81 2.69030690 0.92084330    Study3 1.81(0.92-2.69)
-#> 15    Marker3  1.38 1.92722888 0.84177813    Study3 1.38(0.84-1.93)
-#> 16    Marker4  1.59 2.63372720 0.55223312    Study3 1.59(0.55-2.63)
-#> 17    Marker5  0.06 0.08788204 0.03008043    Study3 0.06(0.03-0.09)
-#> 18    Marker6  0.96 1.33745306 0.58417490    Study3 0.96(0.58-1.34)
+#>    MarkerName Value     Upper      Lower StudyName              CI
+#> 1     Marker1  0.58 0.9627017 0.20185681    Study1  0.58(0.2-0.96)
+#> 2     Marker2  1.58 2.3523036 0.80515088    Study1 1.58(0.81-2.35)
+#> 3     Marker3  0.82 1.1468188 0.50090936    Study1  0.82(0.5-1.15)
+#> 4     Marker4  1.77 2.9217783 0.61263094    Study1 1.77(0.61-2.92)
+#> 5     Marker5  1.88 2.8034795 0.95958025    Study1  1.88(0.96-2.8)
+#> 6     Marker6  0.10 0.1401151 0.06119972    Study1  0.1(0.06-0.14)
+#> 7     Marker1  1.06 1.7540708 0.36778904    Study2 1.06(0.37-1.75)
+#> 8     Marker2  1.79 2.6610117 0.91081609    Study2 1.79(0.91-2.66)
+#> 9     Marker3  1.11 1.5414391 0.67327225    Study2 1.11(0.67-1.54)
+#> 10    Marker4  0.92 1.5188567 0.31846995    Study2 0.92(0.32-1.52)
+#> 11    Marker5  1.91 2.8520066 0.97619016    Study2 1.91(0.98-2.85)
+#> 12    Marker6  0.91 1.2696919 0.55457806    Study2 0.91(0.55-1.27)
+#> 13    Marker1  1.36 2.2458311 0.47090006    Study3 1.36(0.47-2.25)
+#> 14    Marker2  1.15 1.7128153 0.58626564    Study3 1.15(0.59-1.71)
+#> 15    Marker3  0.21 0.2990296 0.13061063    Study3  0.21(0.13-0.3)
+#> 16    Marker4  1.80 2.9770775 0.62422592    Study3  1.8(0.62-2.98)
+#> 17    Marker5  0.50 0.7445747 0.25485444    Study3  0.5(0.25-0.74)
+#> 18    Marker6  0.09 0.1304283 0.05696867    Study3 0.09(0.06-0.13)
 ```
 
 ``` r
