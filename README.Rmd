@@ -73,9 +73,9 @@ print(eg_customFilename2)
 print(eg_customFilename_studyName)
 ```
 
-```{r example_02_cont, eval = FALSE}
+```{r example_02_cont, eval = TRUE}
 # run gwasforest function
-eg_returnList = gwasforest(eg_customFilename, customFilename_studyName = eg_customFilename_studyName, stdColnames = FALSE, customColnames = c("Value", "StdErr"), valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo")
+eg_returnList = gwasforest(eg_customFilename2, customFilename_studyName = eg_customFilename_studyName, stdColnames = FALSE, customColnames = c("Value", "StdErr"), valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo")
 ```
 
 * **( 3 )** when **customFilename_results** is in dataframe format (run either of the two steps above to see the example results): 
