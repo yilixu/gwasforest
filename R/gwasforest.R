@@ -211,7 +211,7 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
       } else {
         customFilename_noPath = "gwasforest_generated"
       }
-      print(glue::glue("Based on user's choice, GWAS results output file will be generated in {outputFolderPath}"))
+      print(as.character(glue::glue("Based on user's choice, GWAS results output file will be generated in {outputFolderPath}")))
       utils::write.csv(tempCSV, file = paste0(outputFolderPath, customFilename_noPath, "_results.csv"), quote = FALSE, row.names = FALSE)
       rm(customFilename_noPath)
     } else {
@@ -305,7 +305,7 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
 
   # save gwas forest plot file
   if (!is.null(outputFolderPath)) {
-    print(glue::glue("Based on user's choice, GWAS forest plot file will be generated in {outputFolderPath}"))
+    print(as.character(glue::glue("Based on user's choice, GWAS forest plot file will be generated in {outputFolderPath}")))
     suppressWarnings(
       ggplot2::ggsave(filename = paste0(outputFolderPath, "GWASForestPlot_of_", length(gwas_markerName), "_items_by_", length(gwas_studyName), "_groups_in_", ifelse(keepStudyOrder == TRUE, "original", "alphabetical"), "_order_", "with_ColorMode_", colorMode, "_", outputPlot_resolution, "dpi", ".", outputPlot_format), plot = gwas_forest, width = gwas_width, height = gwas_height, limitsize = FALSE, device = outputPlot_format, dpi = outputPlot_resolution)
     )
