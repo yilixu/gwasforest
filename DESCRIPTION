@@ -18,5 +18,4 @@ Imports:
     ggplot2,
     ggrepel,
     glue,
-    utils,
-    svglite
+    utils
