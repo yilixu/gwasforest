@@ -10,6 +10,7 @@
 #' @param customColnames # character, case-sensitive, can be a vector, choose from c("Value", "StdErr") or c("Value", "Upper", "Lower") based on what columns are contained in the input data; required if stdColnames = FALSE, also the input data need to be grouped by study while in the customColnames order, e.g. Study1__Value, Study1__StdErr, Study2__Value, Study2__StdErr... (watch for the deliberate double underscores "__" used to connect study name and data type); in addition, each study should contain the same number of columns.
 #' @param calculateEXP logical, whether to calculate exp(Value), if TRUE, downstream calculateCI will also take exp into consideration.
 #' @param calculateCI logical, whether to calculate Confidence Interval, if TRUE, input data need to contain "StdErr" column; if FALSE, input data need to contain "Upper" and "Lower" columns.
+#' @param flipMeta logical, whether to flip the input value of meta study for calculating exp(Value) and confidence interval; e.g. when meta beta is < 0, let's say -0.5, set flipMeta = TRUE to let downstream calculation use -(meta beta), which is -(-0.5) = 0.5, or vice versa; calculating exp(Value) and confidence interval will reflect the flip in meta input value.
 #' @param valueFormat character, format of Value column, e.g. "Effect", "Beta", "OR", "HR", "logRR"...
 #' @param metaStudy character, which study is the meta study, by default "Study1" (the first study appear in the input data columns).
 #' @param colorMode character, choose from c("mono", "duo", "diverse"), mono - render all studies including meta study in the same color, duo - highlight meta study, diverse - render all studies in different colors.
@@ -61,7 +62,7 @@
 #' @export
 
 # create gwasforest function
-gwasforest = function(customFilename, customFilename_results = NULL, customFilename_studyName = NULL, keepStudyOrder = TRUE, stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE, calculateCI = TRUE, valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo", forestLayout = "auto", plotTitle = "auto", showMetaValue = TRUE, outputFolderPath = NULL, outputPlot_format = "png", outputPlot_resolution = 320) {
+gwasforest = function(customFilename, customFilename_results = NULL, customFilename_studyName = NULL, keepStudyOrder = TRUE, stdColnames = FALSE, customColnames = NULL, calculateEXP = FALSE, calculateCI = TRUE, flipMeta = FALSE, valueFormat = "Effect", metaStudy = "Study1", colorMode = "duo", forestLayout = "auto", plotTitle = "auto", showMetaValue = TRUE, outputFolderPath = NULL, outputPlot_format = "png", outputPlot_resolution = 320) {
 
   # preset valueFormat_show for plot title and ylab
   if (calculateEXP == TRUE) {
@@ -130,16 +131,20 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
     # calculate exponential of Value (exp(Value))
     if (calculateEXP == TRUE & ("Value" %in% customColnames | stdColnames == TRUE)) {
       print("Start calculating exp(Value)")
+      if (flipMeta == TRUE) {
+        print("Input value of meta study is flipped for calculating exp(Value)")
+      }
       gwas_effect = subset(gwas_data, select = grepl("__Value$", colnames(gwas_data)))
       gwas_effect = subset(gwas_effect, select = sort(colnames(gwas_effect)))
       colnames(gwas_effect) = gwas_studyName
       gwas_or = apply(gwas_effect, MARGIN = 1, FUN = function(x) {
         if (is.na(x[metaStudy])) {
           x = rep(NA, times = length(gwas_studyName))
-        } else if (x[metaStudy] > 0) {
-          x = exp(x)
         } else {
-          x = exp(-x)
+          if (flipMeta == TRUE) {
+            x[metaStudy] = -x[metaStudy]
+          }
+          x = exp(x)
         }
         return(x)
       })
@@ -149,6 +154,10 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
       print("Loading user-provided values")
       gwas_or = subset(gwas_data, select = grepl("__Value$", colnames(gwas_data)))
       gwas_or = subset(gwas_or, select = sort(colnames(gwas_or)))
+      if (flipMeta == TRUE) {
+        print("User-provided values of meta study is flipped")
+        gwas_or[, paste0(metaStudy, "__Value")] = -gwas_or[, paste0(metaStudy, "__Value")]
+      }
     } else {
       print("User chose not to calculate exp(Value), but no value or exp(Value) is found, please check")
       stop()
@@ -162,11 +171,21 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
       gwas_stderr = subset(gwas_stderr, select = sort(colnames(gwas_stderr)))
       colnames(gwas_stderr) = gwas_studyName
       if (calculateEXP == TRUE) {
-        print("Start calculating Confidence Interval (exponential)")
+        if (flipMeta == TRUE) {
+          print("Input value of meta study is flipped for calculating Confidence Interval")
+          print("Start calculating Confidence Interval (exponential, flipped)")
+        } else {
+          print("Start calculating Confidence Interval (exponential)")
+        }
         gwas_upper = gwas_or * exp(gwas_stderr * 1.96)
         gwas_lower = gwas_or / exp(gwas_stderr * 1.96)
       } else {
-        print("Start calculating Confidence Interval (non-exponential)")
+        if (flipMeta == TRUE) {
+          print("Input value of meta study is flipped for calculating Confidence Interval")
+          print("Start calculating Confidence Interval (non-exponential, flipped)")
+        } else {
+          print("Start calculating Confidence Interval (non-exponential)")
+        }
         gwas_upper = gwas_or + gwas_stderr * 1.96
         gwas_lower = gwas_or - gwas_stderr * 1.96
       }
@@ -293,7 +312,7 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
     + ggplot2::coord_flip()
     + ggplot2::scale_shape_manual(values = c(4, rep(20, times = length(gwas_studyName) - 1)))
     + ggplot2::scale_color_manual(values = gwas_colorScheme)
-    + ggplot2::geom_hline(ggplot2::aes(fill = StudyName), yintercept = 1, linetype = 2)
+    + ggplot2::geom_hline(ggplot2::aes(fill = StudyName), yintercept = ifelse(calculateEXP == TRUE, 1, 0), linetype = 2)
     + ggplot2::geom_errorbar(ggplot2::aes(ymin = Lower, ymax = Upper, col = ColorGroup), width = 0.2, cex = 1)
     + ggrepel::geom_text_repel(ggplot2::aes(label = CI), direction = "y", nudge_x = 0.05)
     + ggplot2::ylab(glue::glue("{valueFormat_show} with 95% Confidence Interval"))
@@ -313,6 +332,9 @@ gwasforest = function(customFilename, customFilename_results = NULL, customFilen
     print("Based on user's choice, GWAS forest plot file will not be generated")
   }
   print("Run completed, thank you for using gwasforest")
+
+  # turn back on global warning
+  # options(warn = globalWarning_original)
 
   # return GWAS results and forest plot object
   temp_gwas_forest_returnList = list("GWAS_results" = gwas_results_fullCI, "GWAS_forest_plot" = gwas_forest)

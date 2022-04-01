@@ -13,6 +13,7 @@ gwasforest(
   customColnames = NULL,
   calculateEXP = FALSE,
   calculateCI = TRUE,
+  flipMeta = FALSE,
   valueFormat = "Effect",
   metaStudy = "Study1",
   colorMode = "duo",
@@ -40,6 +41,8 @@ gwasforest(
 \item{calculateEXP}{logical, whether to calculate exp(Value), if TRUE, downstream calculateCI will also take exp into consideration.}
 
 \item{calculateCI}{logical, whether to calculate Confidence Interval, if TRUE, input data need to contain "StdErr" column; if FALSE, input data need to contain "Upper" and "Lower" columns.}
+
+\item{flipMeta}{logical, whether to flip the input value of meta study for calculating exp(Value) and confidence interval; e.g. when meta beta is < 0, let's say -0.5, set flipMeta = TRUE to let downstream calculation use -(meta beta), which is -(-0.5) = 0.5, or vice versa; calculating exp(Value) and confidence interval will reflect the flip in meta input value.}
 
 \item{valueFormat}{character, format of Value column, e.g. "Effect", "Beta", "OR", "HR", "logRR"...}
 
